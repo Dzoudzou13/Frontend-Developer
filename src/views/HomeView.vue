@@ -11,15 +11,15 @@
                             <h1>Jednoducho nám napíšte a my sa vám ozveme.</h1>
                             <img src="./../assets/exit.png" alt="" @click="isOpen = false">
                         </div>
-                        <form action="">
+                        <form @submit.prevent="odoslatFormular">
                             <div class="name">
                                 <p>Meno <span>*</span></p>
-                                <input type="text" name="meno" id="meno" required>
+                                <input type="text" name="meno" id="meno" v-model="meno" required>
                             </div>
                             <div class="mail-tel">
                                 <div class="modal-mail">
                                     <p>E-mail: <span>*</span> </p>
-                                    <input type="email" name="" id="" required>
+                                    <input type="email" name="email" id="email" v-model="email" required>
                                 </div>
                                 <div class="modal-tel">
                                     <p>Tel.číslo:</p>
@@ -36,7 +36,7 @@
                             </div>
                         </form>
                         <div class="modal-btn">
-                            <button>Kontaktujte ma</button>
+                            <button @click="odoslatFormular" type="submit">Kontaktujte ma</button>
                         </div>
                     </div>
                 </teleport>
@@ -179,7 +179,9 @@
 export default {
  data() {
   return {
-    isOpen: false
+    isOpen: false,
+    meno: '',
+    email: ''
   };
 },
 methods: {
@@ -195,6 +197,19 @@ methods: {
         console.log("Modal not found");
       }
     });
+  },
+   odoslatFormular() {
+    if (this.meno.trim() === '' || this.email.trim() === '') {
+      alert('Prosím vyplňte povinné polia: Meno a Email.');
+      return false;
+    }
+    var emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!this.email.match(emailFormat)) {
+      alert('Prosím zadajte platnú e-mailovú adresu.');
+      return false;
+    }
+    alert('Formulár je úspešne odoslaný.');
+    return true;
   }
 },
   watch: {
@@ -621,7 +636,7 @@ footer{
 }
 
 .bg-modal input {
-    width: 39.25em;
+    width: 32em;
     height: 3.44em;
     border-radius: 0.25em;
     background-color: #EFEFEF;
@@ -638,7 +653,7 @@ footer{
     display: flex;
 }
 .mail-tel input {
-    width: 16.5em;
+    width: 13em;
 }
 
 .modal-mail {
