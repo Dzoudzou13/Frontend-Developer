@@ -42,7 +42,7 @@
                 </teleport>
             </div>
             <div class="title">
-                <h1>Zvýšte svoje zisky optimalizáciou vášho eshopu.</h1>    
+                <h1>Zvýšte svoje <span>zisky optimalizáciou</span>vášho eshopu.</h1>    
             </div>
         </header>
         <main>
@@ -108,7 +108,7 @@
             </div>
             <div class="numbers">
                 <div class="one">
-                    <img src="./../assets/1.svg" alt="čislo 1">
+                    <img src="./../assets/1.svg" alt="čislo 1" class="img1">
                     <div class="text-box">
                         <h3>Ciele auditu</h3>
                         <p>Určíme si spoločné ciele, nastavíme očakávania a definujeme <b>cieľovú skupinu a jej potreby.</b></p>
@@ -915,7 +915,7 @@ footer{
         width: 11.5em;
     }
     .text-box p {
-        width: 19.5em;
+        width: 13.5em;
     }
     .two {
         padding-top: 3em;  
@@ -958,6 +958,82 @@ footer{
     }
     .bg-modal {
         right: 0.2em;   
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .numbers {
+        align-items: stretch;
+    }
+    .numbers img {
+        padding-left: 2em;
+    }
+    .text-box  {
+        padding-left: 1em;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .logo {
+        margin-left: 1em;
+    }
+    .logo-btn {
+        justify-content: space-between;
+    }
+    .logo-btn button {
+        right: 8em;
+        min-width: 15.5em;    
+    }
+    .title h1 {
+        display: flex; 
+        flex-direction: column;   
+    }
+    .images {
+        font-size: 0.7em;
+    }
+    .container h2 {
+        margin-left: 0.5em;
+    }
+    .list p {
+        margin-left: 2.5em;    
+    }
+    .list ul {
+        margin-left: 1em;
+    }
+    .UX button {
+        width: 15em;    
+    }
+    .box1,
+    .box2 {
+        padding: 2em 0em 0.19em 0.5em;
+    }
+    .svet {
+        left: 2.8em;
+    }
+    .alain {
+        left: -0em;
+    }
+    .results h2 {
+        margin-left: 1em; 
+    } 
+    .pink2 {
+        left: 3.2em;
+    }
+    .pink3 {
+        left: 1em;
+    }
+    .ul ul {
+        margin-left: 1em;
+    }
+    .ul p {
+        font-size: 1.35em;
+        margin-left: 1em;
+    }
+    .btn {
+        left: -0.5em;
+    }
+    .btn button {
+        width: 13em;    
     }
 }
 </style>
