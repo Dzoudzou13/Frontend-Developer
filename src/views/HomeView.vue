@@ -1,9 +1,45 @@
+<!-- eslint-disable no-unused-vars -->
 <template>
-    <div>
+    <div id="bg-site">
         <header>
             <div class="logo-btn"> 
                 <img src="./../assets/logoR.png" alt="logo" class="logo">
-                <button>Mám záujem o UX audit</button>
+                <button @click="openModal">Mám záujem o UX audit</button>
+                <teleport to="#app">
+                    <div id="modal"  class="bg-modal" v-if="isOpen">
+                        <div class="modal-header">
+                            <h1>Jednoducho nám napíšte a my sa vám ozveme.</h1>
+                            <img src="./../assets/exit.png" alt="" @click="isOpen = false">
+                        </div>
+                        <form action="">
+                            <div class="name">
+                                <p>Meno <span>*</span></p>
+                                <input type="text" name="meno" id="meno" required>
+                            </div>
+                            <div class="mail-tel">
+                                <div class="modal-mail">
+                                    <p>E-mail: <span>*</span> </p>
+                                    <input type="email" name="" id="" required>
+                                </div>
+                                <div class="modal-tel">
+                                    <p>Tel.číslo:</p>
+                                    <input type="text" name="" id="">
+                                </div>
+                            </div>
+                            <div class="web">
+                                <p>Webstránka:</p>
+                                <input type="text" name="" id="">
+                            </div>
+                            <div class="note">
+                                <p>Poznámka:</p>
+                                <input type="text" name="" id="" placeholder="Je niečo čo by ste sa nás chceli spýtat?">
+                            </div>
+                        </form>
+                        <div class="modal-btn">
+                            <button>Kontaktujte ma</button>
+                        </div>
+                    </div>
+                </teleport>
             </div>
             <div class="title">
                 <h1>Zvýšte svoje zisky optimalizáciou vášho eshopu.</h1>    
@@ -32,7 +68,7 @@
             </div>
             <div class="UX container">
                 <p>Dosiahnite lepšie výsledky vašej webstránky alebo e-shopu <b>pomocou UX auditu.</b></p>
-                <button>Mám záujem o UX audit</button>
+                <button @click="openModal">Mám záujem o UX audit</button>
             </div>
 
             <div class="boxes container">
@@ -40,7 +76,7 @@
                     <div class="box1">
                         <p>Pravidelné UX audity a postupné vylepšovanie nášho internetového obchodu je už niekoľko rokov súčasťou našej dlhodobej stratégie v predaji. 
                             UX tím v Riešeniach odvádza skvelú prácu, ktorú sprevádzajú viditeľné výsledky a spokojnosť našich zákazníkov. 
-                            Okrem ich prístupu k nášmu biznisu … <span>čítať viac</span></p>
+                            Okrem ich prístupu k nášmu biznisu … <span class="red">čítať viac</span></p>
                         <img src="./../assets/dittos.svg" alt="">
                     </div>
                 </div>
@@ -49,7 +85,7 @@
                         <p>S UX tímom Riešení úzko spolupracujeme už dlhé roky a sú dôležitým partnerom nášho biznisu. 
                             Vďaka ich know-how pre nás od samého začatku správne nastavili zdravý pomer prvotriedneho dizajnu a funkčnosti webu,
                             ktorý následne vylepšovali pomocou relevantných analýz a dát. 
-                            Aj ich zásluhou … <span>čítať viac</span></p>
+                            Aj ich zásluhou … <span class="red">čítať viac</span></p>
                         <img src="./../assets/dittos.svg" alt="">
                     </div>
                 </div>
@@ -59,14 +95,14 @@
                     <img src="./../assets/svetnapojov.svg" alt="logo firmy SvetNápojov.sk">
                     <p> <b>Jozef Korman </b> <br> Konateľ  <span>SvetNápojov.sk</span> </p>
                 </div>
-                <div class="loga-firiem">
+                <div class="loga-firiem alain">
                     <img src="./../assets/alaindelon.png" alt="logo firmy  AlainDelon">
                     <p> <b>Richard Wohlstein </b> <br> Retail manager <span>AlainDelon.sk</span> </p>
                 </div>            
             </div>
             <div class="results container">
                 <div class="pink">
-                     <h2>Rýchla a jednoduchá cesta k výsledkom.</h2>
+                     <h2>Rýchla <span>a jednoduchá cesta k výsledkom.</span></h2>
                      <img src="./../assets/pink.svg" alt="" class="pink2">                
                     </div>
             </div>
@@ -121,7 +157,7 @@
                 </ul>
             </div>
             <div class="btn container">
-                <button>Mám záujem o UX audit</button>
+                <button @click="openModal">Mám záujem o UX audit</button>
             </div>       
         </main>
         <footer>
@@ -136,21 +172,42 @@
                 <img src="./../assets/company.png" alt="RIESENIA">            
             </div>
         </footer>
-
-        <div id="modal-form" class="hidden">
-  <div class="modal-content">
-    <h1>Zadajte svoje informácie</h1>
-    <form action="submit.php" method="post">
-      <input type="text" name="name" placeholder="Zadajte svoje meno">
-      <input type="email" name="email" placeholder="Zadajte svoj e-mail">
-      <input type="submit" value="Odoslať">
-    </form>
-  </div>
-</div>
     </div>
 </template>
 
 <script>
+export default {
+ data() {
+  return {
+    isOpen: false
+  };
+},
+methods: {
+  openModal() {
+    this.isOpen = true;
+    console.log("Modal opened");
+    this.$nextTick(() => {
+      const modal = document.getElementById('modal');
+      if (modal) {
+        console.log("Modal found, scrolling...");
+        modal.scrollIntoView({ behavior: 'smooth'});
+      } else {
+        console.log("Modal not found");
+      }
+    });
+  }
+},
+  watch: {
+    isOpen(value) {
+      // Ak je modalita otvorená, pridáme triedu na kontajner aplikácie, inak ju odstránime
+      if (value) {
+        document.getElementById('bg-site').classList.add('modal-open')
+      } else {
+        document.getElementById('bg-site').classList.remove('modal-open')
+      }
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -284,6 +341,7 @@ Button {
     font-weight: 900;
     margin-top: 1em;
     transition-duration: 2s;
+    cursor: pointer;
 }
 
 Button:focus,
@@ -300,9 +358,8 @@ Button:hover {
 }
 .box1,
 .box2 {
-    width: 26.25em;
-    height: 17.7em;
     border: 1px solid #D6D8DD;
+    padding: 2em 1.56em 1.75em 2.12em;
 }
 .box1 {
     margin-right: 6em;
@@ -320,11 +377,10 @@ Button:hover {
     font-size: 1em;
     font-weight: 400;
     line-height: 2em;
-    padding: 2em 1.56em 1.75em 2.12em;
     margin: 0;
 }
-.box1 span,
-.box2 span {
+.red ,
+.red {
     color: #EE325C;
     font-weight: 700;
 }
@@ -364,6 +420,9 @@ Button:hover {
     padding-right: 0em;
     text-align: center;
     padding-top: 3.5em;
+}
+.resualts h2 br {
+    display: none;
 }
 
 .one{
@@ -514,7 +573,98 @@ footer{
 }
 
 
+/* Modalný formulár */
+#bg-site.modal-open {
+  opacity: 0.5;
+  background-color: rgba(255 , 255, 255, 0.90);
+}
 
+.bg-modal {
+    position: absolute;
+    width: 34.19em;
+    height: 53.9em;
+    border: 1px solid #E7E8EB;
+    background: #fff;
+    box-shadow: 0px 32px 45px 0px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    top: 7em;
+    right: 35%;
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bg-modal h1{
+    font-size: 1.875em;
+    color: #000;
+    width: 12.75em;
+    height: 6.625em;
+    font-weight: 900;
+    line-height: 2em;
+    margin-top: 3em;
+}
+.bg-modal img {
+    position: relative;
+    top: -17em;
+    left: 14em;
+    cursor: pointer;
+}
+
+.bg-modal form {
+    margin-top: -7em;
+    padding-left: 3em;
+}
+
+.bg-modal input {
+    width: 39.25em;
+    height: 3.44em;
+    border-radius: 0.25em;
+    background-color: #EFEFEF;
+    border: #EFEFEF;
+    padding-left: 2em;
+}
+.bg-modal p {
+    font-weight: 900;
+}
+.bg-modal span {
+    color: #EE325C;
+}
+.mail-tel {
+    display: flex;
+}
+.mail-tel input {
+    width: 16.5em;
+}
+
+.modal-mail {
+    margin-right: 3em;
+}
+
+.note input{
+    padding-bottom: 10em;
+}
+.note input::placeholder {
+    color: #000;
+    font-weight: 400;
+    font-size: 1em;
+}
+.modal-btn {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+@media screen and (max-width: 1250) {
+    .bg-modal {
+        right: 31.5%;    
+    }    
+}
 
 @media screen and (max-width: 1085px ) {
     .container {
@@ -538,6 +688,261 @@ footer{
     }
     .list p br {
         display: none;
+    }
+    .UX{
+        flex-direction: column;
+        margin-top: 3.7em;
+    }
+    .UX p {
+        width: 18em;
+        height: 7.38em;
+        left: 0;
+        margin-right: 1.5em;
+    }
+    .UX button {
+        margin-right: 1.5em;
+    }
+    .boxes{
+        flex-direction: column;
+        margin-top: 4em;
+    }
+    .box1{
+        margin-right: 0em;
+        margin-bottom: 10em;
+    }
+    .svet {
+        left: -0.5em;
+        top: -34em;
+    }
+    .alain{
+        position: relative;
+        left: -3.5em;
+    }
+    .results h2 {
+        padding-top: 0em;
+    }
+    .arrowR{
+        display: none;
+    }
+    .arrowL{
+        display: none;
+    }
+    .smallarrowR{
+        display: none;
+    }
+    .two {
+        left: 10em;
+    }
+    .four {
+        left:9em
+    }
+    .important {
+        padding-top: 0em;
+    }
+    .ul p {
+        margin-top: 2em;
+        margin-bottom: 5em;
+        margin-right: 0em;
+    }
+    .btn{
+        left: -1.5em;
+    }
+    .bg-modal{
+        right: 24.5%;
+    }
+}
+
+@media screen and (max-width: 900px ) {
+    .numbers{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .one {
+        left: 0em;
+    }
+    .numbers img {
+        padding-top: 2em;
+    }
+    .two {
+        left: 0em;
+        padding-top: 0em;
+    }
+    .four {
+        left: 0em;
+        padding-top: 0em;
+    }
+}
+
+@media screen and (max-width: 800px ) {
+    .footer {
+        height: 39.1em;
+    }
+    .text h1{
+        width: 11em;
+        font-size: 1.5em;
+    }
+    .contact {
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2em;
+        font-size: 1.375em; 
+    }
+    .tel {
+        padding-right: 0em;
+    }
+
+    .company img {
+        width: 12em;   
+    }
+    .bg-modal {
+        right: 19.8%;    
+    }
+}
+
+@media screen and (max-width: 715px) {
+    .bg-modal{
+        right: 15%;    
+    }   
+}
+
+@media screen and (max-width: 680px) {
+    .bg-modal {
+        right: 2em;
+    }
+}
+
+@media screen and (max-width: 560px ) {
+    .title{
+        height: 12.31em;
+    }
+    h1 {
+        font-size: 1.875em;
+        height: 3em;
+    }
+    header button {
+        position: relative;
+        bottom: -22em;
+        right: 9em;    
+    }
+    .container h2 {
+        font-size: 2em;
+        width: 9.94em;
+    }
+    .pink1{
+        top: -6.5em;
+        right: -6.4em;
+        width: 9em;
+    }
+    .list p {
+        font-size: 1.25em;
+        margin-left: 2em;  
+        margin-bottom: 2em;
+    }
+    ul {
+        padding-top: 9em;
+        width: 17.63em;
+        padding-right: 2em;  
+    }
+    .UX {
+        margin-top: 4.7em;
+    }
+    .UX p {
+        width: 12.5em;
+    }
+    .UX button {
+        margin-right: 0em;
+        width: 16em;
+        margin-top: 4em;   
+    }
+    .box1 {
+        width: 20.186em;
+        height: 19em;
+        padding: 2em 1.19em 0.19em 1.75em;
+    }
+    .box1 p {
+        width: 17.25em;
+        height: 20.125em;
+    }
+    .box1 img {
+        bottom: 23.4em;
+        left: 1em;
+    }
+    .svet{
+        left: 1em;
+        top: -41em;
+    }
+    .box2 {
+        width: 20.19em;
+        height: 22.9em;
+        padding: 2em 1.19em 0.19em 1.75em;
+    }
+    .box2 p {
+        width: 16.44em;
+        height: 19.5em;
+    }
+    .box2 img {
+        bottom: 23em;
+        left: 1em;
+    }
+    .alain {
+        left: -2em;
+    }
+    .results h2 {
+        display: flex;
+        flex-direction: column;
+        text-align: left;    
+    }
+    .pink2 {
+        top: -1.5em;
+        left: 1.5em;
+        width: 11.5em;
+    }
+    .text-box p {
+        width: 19.5em;
+    }
+    .two {
+        padding-top: 3em;  
+        padding-bottom: 2em;
+    }
+    .nmb-2 p {
+        width: 14em;    
+    }
+    .nmb-3 p {
+        width: 14.5em;    
+    }
+    .four {
+        padding-top: 3em;
+    }
+    .important{
+        padding-top: 2em;
+    }
+    .important h2{
+        width: 8.94em;    
+    }
+    .pink3 {
+        top: -4em;
+        width: 17em;
+    }
+    .ul ul {
+        width: 15.63em;
+    }
+    .ul p {
+        margin-top: 6em;
+        width: 12.69em;
+    }
+    .btn {
+        margin-top: 2em; 
+    }
+    .btn button {
+        width: 15.7em;  
+    }
+    footer {
+        height: 34.1em;
+    }
+    .bg-modal {
+        right: 0.2em;   
     }
 }
 </style>
