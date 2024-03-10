@@ -621,7 +621,7 @@ Button:hover {
     }
     .box1 p {
         width: 17.25em;
-        padding: 2em 1.19em 0.19em 1.75em;
+        padding: 2em 1.19em 1em 1.75em;
     }
     .box1 img {
         bottom: 21.9em;
