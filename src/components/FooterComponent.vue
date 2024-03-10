@@ -8,7 +8,7 @@
             <a href="mailto:uxdesign@riesenia.com" class="email">uxdesign@riesenia.com</a>
         </div>
         <div class="company">
-            <img src="./../assets/company.png" alt="RIESENIA">            
+            <img src="./../assets/images/company.png" alt="RIESENIA">            
         </div>
     </footer>
 </template>

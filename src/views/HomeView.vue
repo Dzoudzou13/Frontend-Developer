@@ -5,11 +5,11 @@
             <div class="container">
                 <div class="pink">           
                     <h2>Rýchle výsledky pomocou UX auditu.</h2>
-                    <img src="./../assets/pink.svg" alt="" class="pink1">
+                    <img src="./../assets/images/pink.svg" alt="" class="pink1">
                 </div>    
                 <div class="images">
-                    <img src="./../assets/premier-google-partner-RGB-search-mobile-vid-disp-shop.jpg" alt="google partner" class="google">
-                    <img src="./../assets/memberofadma.png" alt="member of adma" class="adma">
+                    <img src="./../assets/images/premier-google-partner-RGB-search-mobile-vid-disp-shop.jpg" alt="google partner" class="google">
+                    <img src="./../assets/images/memberofadma.png" alt="member of adma" class="adma">
                 </div>
             </div>
             <div class="list container">
@@ -25,21 +25,27 @@
             <div class="UX container">
                 <p>Dosiahnite lepšie výsledky vašej webstránky alebo e-shopu <b>pomocou UX auditu.</b></p>
                 <button @click="openModal">Mám záujem o UX audit</button>
-                <teleport to="#app">
+                 <teleport to="#app">
                     <div id="modal"  class="bg-modal" v-if="isOpen">
                         <div class="modal-header">
                             <h1>Jednoducho nám napíšte a my sa vám ozveme.</h1>
-                            <img src="./../assets/exit.png" alt="" @click="isOpen = false">
+                            <img src="./../assets/images/exit.png" alt="" @click="isOpen = false">
                         </div>
                         <form @submit.prevent="odoslatFormular">
                             <div class="name">
                                 <p>Meno <span>*</span></p>
-                                <input type="text" name="meno" id="meno" v-model="meno" required>
+                                <input type="text" name="meno" id="meno" v-model="formData.meno">
+                                <span v-for="error in v$.meno.$errors" :key="error.$uid" class="error"> 
+                                    {{ error.$message }}
+                                </span>
                             </div>
                             <div class="mail-tel">
                                 <div class="modal-mail">
                                     <p>E-mail: <span>*</span> </p>
-                                    <input type="email" name="email" id="email" v-model="email" required>
+                                    <input type="email" name="email" id="email"  v-model="formData.email">
+                                     <span v-for="error in v$.email.$errors" :key="error.$uid" class="error"> 
+                                    {{ error.$message }}
+                                </span>
                                 </div>
                                 <div class="modal-tel">
                                     <p>Tel.číslo:</p>
@@ -54,10 +60,10 @@
                                 <p>Poznámka:</p>
                                 <input type="text" name="" id="" placeholder="Je niečo čo by ste sa nás chceli spýtat?">
                             </div>
+                             <div class="modal-btn">
+                                <button type="submit">Kontaktujte ma</button>
+                            </div>
                         </form>
-                        <div class="modal-btn">
-                            <button @click="odoslatFormular" type="submit">Kontaktujte ma</button>
-                        </div>
                     </div>
                 </teleport>
             </div>
@@ -68,7 +74,7 @@
                         <p>Pravidelné UX audity a postupné vylepšovanie nášho internetového obchodu je už niekoľko rokov súčasťou našej dlhodobej stratégie v predaji. 
                             UX tím v Riešeniach odvádza skvelú prácu, ktorú sprevádzajú viditeľné výsledky a spokojnosť našich zákazníkov. 
                             Okrem ich prístupu k nášmu biznisu … <span class="red">čítať viac</span></p>
-                        <img src="./../assets/dittos.svg" alt="">
+                        <img src="./../assets/images/dittos.svg" alt="">
                     </div>
                 </div>
                 <div class="dotte">
@@ -77,53 +83,53 @@
                             Vďaka ich know-how pre nás od samého začatku správne nastavili zdravý pomer prvotriedneho dizajnu a funkčnosti webu,
                             ktorý následne vylepšovali pomocou relevantných analýz a dát. 
                             Aj ich zásluhou … <span class="red">čítať viac</span></p>
-                        <img src="./../assets/dittos.svg" alt="">
+                        <img src="./../assets/images/dittos.svg" alt="">
                     </div>
                 </div>
             </div>
             <div class="users container">
                 <div class="loga-firiem svet">
-                    <img src="./../assets/svetnapojov.svg" alt="logo firmy SvetNápojov.sk">
+                    <img src="./../assets/images/svetnapojov.svg" alt="logo firmy SvetNápojov.sk">
                     <p> <b>Jozef Korman </b> <br> Konateľ  <span>SvetNápojov.sk</span> </p>
                 </div>
                 <div class="loga-firiem alain">
-                    <img src="./../assets/alaindelon.png" alt="logo firmy  AlainDelon">
+                    <img src="./../assets/images/alaindelon.png" alt="logo firmy  AlainDelon">
                     <p> <b>Richard Wohlstein </b> <br> Retail manager <span>AlainDelon.sk</span> </p>
                 </div>            
             </div>
             <div class="results container">
                 <div class="pink">
                      <h2>Rýchla <span>a jednoduchá cesta k výsledkom.</span></h2>
-                     <img src="./../assets/pink.svg" alt="" class="pink2">                
+                     <img src="./../assets/images/pink.svg" alt="" class="pink2">                
                     </div>
             </div>
             <div class="numbers">
                 <div class="one">
-                    <img src="./../assets/1.svg" alt="čislo 1" class="img1">
+                    <img src="./../assets/images/1.svg" alt="čislo 1" class="img1">
                     <div class="text-box nmb-1">
                         <h3>Ciele auditu</h3>
                         <p>Určíme si spoločné ciele, nastavíme očakávania a definujeme <b>cieľovú skupinu a jej potreby.</b></p>
                     </div>
-                    <img class="arrowR" src="./../assets/arrowR.svg" alt="prava šipka">
+                    <img class="arrowR" src="./../assets/images/arrowR.svg" alt="prava šipka">
                 </div>
                 <div class="two">
-                    <img src="./../assets/arrowL.svg" alt="ľava šipka" class="arrowL">
-                    <img src="./../assets/2.svg" alt="čislo 2">
+                    <img src="./../assets/images/arrowL.svg" alt="ľava šipka" class="arrowL">
+                    <img src="./../assets/images/2.svg" alt="čislo 2">
                     <div class="text-box nmb-2">
                         <h3>Zbieranie dát</h3>
                         <p>Zvolíme vhodné metodiky a nástroje na <b>sledovanie správania používateľov a zbieranie dát.</b></p>
                     </div>
                 </div>
                 <div class="one">
-                    <img src="./../assets/3.svg" alt="čislo 3">
+                    <img src="./../assets/images/3.svg" alt="čislo 3">
                     <div class="text-box nmb-3">
                         <h3>Vyhodnotenie</h3>
                         <p><b>Vyhodnotíme nazbierané dáta,</b> zosumarizujeme všetky naše zistenia a <b>navrhneme riešenia.</b></p>
                     </div>
-                    <img class="smallarrowR" src="./../assets/smallerarrowR.svg" alt="prava šipka">
+                    <img class="smallarrowR" src="./../assets/images/smallerarrowR.svg" alt="prava šipka">
                 </div>
                 <div class="four">
-                    <img src="./../assets/4.svg" alt="čislo 4">
+                    <img src="./../assets/images/4.svg" alt="čislo 4">
                     <div class="text-box nmb-2">
                         <h3>Výsledky auditu</h3>
                         <p><b>Osobná prezentácia výsledkov a navrhnutých riešení </b> s podrobnou dokumentáciou.</p>
@@ -133,7 +139,7 @@
             <div class="important container">
                 <div class="pink">
                     <h2>Zameriame sa na to najdôležitejšie.</h2>
-                    <img src="./../assets/pink3.png" class="pink3" alt="">
+                    <img src="./../assets/images/pink3.png" class="pink3" alt="">
                 </div>
             </div>
             <div class="ul container">
@@ -155,55 +161,75 @@
 </template>
 
 <script>
+import { required, email, minLength} from '@vuelidate/validators';
+import { reactive, computed } from 'vue';
+import { useVuelidate } from '@vuelidate/core';
+
 export default {
-    data() {
-  return {
-    isOpen: false,
-    meno: '',
-    email: ''
-  };
-},
-methods: {
-  openModal() {
-    this.isOpen = true;
-    console.log("Modal opened");
-    this.$nextTick(() => {
-      const modal = document.getElementById('modal');
-      if (modal) {
-        console.log("Modal found, scrolling...");
-        modal.scrollIntoView({ behavior: 'smooth'});
-      } else {
-        console.log("Modal not found");
-      }
-    });
+  data() {
+    return {
+      isOpen: false,
+      formData: reactive({
+        meno: '',
+        email: ''
+      }),
+      v$: null
+    };
   },
-   odoslatFormular() {
-    if (this.meno.trim() === '' || this.email.trim() === '') {
-      alert('Prosím vyplňte povinné polia: Meno a Email.');
-      return false;
+  methods: {
+    openModal() {
+      this.isOpen = true;
+      console.log("Modální okno otvorené");
+      this.$nextTick(() => {
+        const modal = document.getElementById('modal');
+        if (modal) {
+          console.log("Modální okno nájdené, posúvanie...");
+          modal.scrollIntoView({ behavior: 'smooth'});
+        } else {
+          console.log("Modální okno nenájdené");
+        }
+      });
+    },
+    async odoslatFormular() {
+      if (this.v$) {
+        const result = await this.v$.$validate();
+        if (result) {
+          alert('Formulár bol úspešne odoslaný!');
+        } else { 
+          alert('Prosím, vyplňte povinné polia.');
+        }
+      }
     }
-    const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!this.email.match(emailFormat)) {
-      alert('Prosím zadajte platnú e-mailovú adresu.');
-      return false;
-    }
-    alert('Formulár je úspešne odoslaný.');
-    return true;
-  }
-},
+  },
   watch: {
     isOpen(value) {
       if (value) {
-        document.getElementById('app').classList.add('modal-open')
+        document.getElementById('app').classList.add('modal-open');
       } else {
-        document.getElementById('app').classList.remove('modal-open')
+        document.getElementById('app').classList.remove('modal-open');
       }
     }
+  },
+  computed: {
+    rules() {
+      return computed(() => ({
+        meno: { required, minLength: minLength(5) },
+        email: { required, email }
+      }));
+    }
+  },
+  validations() {
+    return {
+      formData: this.rules
+    };
+  },
+  mounted() {
+    this.v$ = useVuelidate(this.rules, this.formData);
   }
-}
+};
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .container{
     display: flex;
     justify-content: center;
@@ -256,7 +282,7 @@ ul {
     padding-left: 0; 
 }
 li {
-    background-image: url('./../assets/greencircle.svg'); 
+    background-image: url('./../assets/images/greencircle.svg'); 
     background-repeat: no-repeat; 
     padding-left: 1.875em; 
     padding-bottom: 2.5em;
@@ -281,7 +307,7 @@ li {
     margin-top: 0;
 }
 
-Button {
+.UX Button {
     width: 19.7em;
     height: 3.5em;
     border-radius: 0.5em;
@@ -296,8 +322,8 @@ Button {
     cursor: pointer;
 }
 
-Button:focus,
-Button:hover {
+.UX Button:focus,
+.UX Button:hover {
     background: #EE325C;
     animation: pulse-169a02ec 1s;
     box-shadow: inset 0 0 0 2em transparent, 0 0 0 1em transparent;
@@ -624,7 +650,7 @@ Button:hover {
         padding: 2em 1.19em 1em 1.75em;
     }
     .box1 img {
-        bottom: 21.9em;
+        bottom: 22.6em;
         left: 1em;
     }
     .svet{
@@ -728,6 +754,9 @@ Button:hover {
     }
     .container h2 {
         margin-left: 0.5em;
+    }
+    .pink1 {
+        left: -7.4em;
     }
     .list p {
         margin-left: 3em;    

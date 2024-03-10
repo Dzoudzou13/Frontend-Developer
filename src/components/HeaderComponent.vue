@@ -1,23 +1,29 @@
 <template>
    <header>
             <div class="logo-btn"> 
-                <img src="./../assets/logoR.png" alt="logo" class="logo">
+                <img src="./../assets/images/logoR.png" alt="logo" class="logo">
                 <button @click="openModal">Mám záujem o UX audit</button>
                 <teleport to="#app">
                     <div id="modal"  class="bg-modal" v-if="isOpen">
                         <div class="modal-header">
                             <h1>Jednoducho nám napíšte a my sa vám ozveme.</h1>
-                            <img src="./../assets/exit.png" alt="" @click="isOpen = false">
+                            <img src="./../assets/images/exit.png" alt="" @click="isOpen = false">
                         </div>
                         <form @submit.prevent="odoslatFormular">
                             <div class="name">
                                 <p>Meno <span>*</span></p>
-                                <input type="text" name="meno" id="meno" v-model="meno" required>
+                                <input type="text" name="meno" id="meno" v-model="formData.meno">
+                                <span v-for="error in v$.meno.$errors" :key="error.$uid" class="error"> 
+                                    {{ error.$message }}
+                                </span>
                             </div>
                             <div class="mail-tel">
                                 <div class="modal-mail">
                                     <p>E-mail: <span>*</span> </p>
-                                    <input type="email" name="email" id="email" v-model="email" required>
+                                    <input type="email" name="email" id="email"  v-model="formData.email">
+                                     <span v-for="error in v$.email.$errors" :key="error.$uid" class="error"> 
+                                    {{ error.$message }}
+                                </span>
                                 </div>
                                 <div class="modal-tel">
                                     <p>Tel.číslo:</p>
@@ -32,77 +38,94 @@
                                 <p>Poznámka:</p>
                                 <input type="text" name="" id="" placeholder="Je niečo čo by ste sa nás chceli spýtat?">
                             </div>
+                             <div class="modal-btn">
+                                <button type="submit">Kontaktujte ma</button>
+                            </div>
                         </form>
-                        <div class="modal-btn">
-                            <button @click="odoslatFormular" type="submit">Kontaktujte ma</button>
-                        </div>
                     </div>
                 </teleport>
             </div>
             <div class="title">
                 <h1>Zvýšte svoje <span>zisky optimalizáciou</span>vášho eshopu.</h1>    
             </div>
-            <div class="btn">
+            <div class="mobile-btn">
                  <button @click="openModal">Mám záujem o UX audit</button>
             </div>
         </header>
 </template>
 
 <script>
+import { required, email, minLength} from '@vuelidate/validators';
+import { reactive, computed } from 'vue';
+import { useVuelidate } from '@vuelidate/core';
+
 export default {
-    data() {
-  return {
-    isOpen: false,
-    meno: '',
-    email: ''
-  };
-},
-methods: {
-  openModal() {
-    this.isOpen = true;
-    console.log("Modal opened");
-    this.$nextTick(() => {
-      const modal = document.getElementById('modal');
-      if (modal) {
-        console.log("Modal found, scrolling...");
-        modal.scrollIntoView({ behavior: 'smooth'});
-      } else {
-        console.log("Modal not found");
-      }
-    });
+  data() {
+    return {
+      isOpen: false,
+      formData: reactive({
+        meno: '',
+        email: ''
+      }),
+      v$: null
+    };
   },
-   odoslatFormular() {
-     if (this.meno.trim() === '' || this.email.trim() === '') {
-      alert('Prosím vyplňte povinné polia: Meno a Email.');
-      document.getElementById('meno').classList.add('error'); 
-      document.getElementById('email').classList.add('error'); 
-      return false;
+  methods: {
+    openModal() {
+      this.isOpen = true;
+      console.log("Modální okno otvorené");
+      this.$nextTick(() => {
+        const modal = document.getElementById('modal');
+        if (modal) {
+          console.log("Modální okno nájdené, posúvanie...");
+          modal.scrollIntoView({ behavior: 'smooth'});
+        } else {
+          console.log("Modální okno nenájdené");
+        }
+      });
+    },
+    async odoslatFormular() {
+      if (this.v$) {
+        const result = await this.v$.$validate();
+        if (result) {
+          alert('Formulár bol úspešne odoslaný!');
+        } else { 
+          alert('Prosím, vyplňte povinné polia.');
+        }
+      }
     }
-    const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!this.email.match(emailFormat)) {
-      alert('Prosím zadajte platnú e-mailovú adresu.');
-      document.getElementById('email').classList.add('error'); 
-      return false;
-    }
-    alert('Formulár je úspešne odoslaný.');
-    return true;
-  }
-},
+  },
   watch: {
     isOpen(value) {
       if (value) {
-        document.getElementById('app').classList.add('modal-open')
+        document.getElementById('app').classList.add('modal-open');
       } else {
-        document.getElementById('app').classList.remove('modal-open')
+        document.getElementById('app').classList.remove('modal-open');
       }
     }
+  },
+  computed: {
+    rules() {
+      return computed(() => ({
+        meno: { required, minLength: minLength(5) },
+        email: { required, email }
+      }));
+    }
+  },
+  validations() {
+    return {
+      formData: this.rules
+    };
+  },
+  mounted() {
+    this.v$ = useVuelidate(this.rules, this.formData);
   }
-}
+};
 </script>
 
 <style>
 header {
-    width: 100vw;
+    width: 100%;
     height: 34.625em;
     background: linear-gradient(171deg, #3D2E80 51.38%, #DC1969 125.72%);
 }
@@ -141,7 +164,7 @@ h1 {
     line-height: 2em;
     width: 14.375em;
 }
-.btn {
+.mobile-btn {
     display: none;
 }
 
@@ -187,7 +210,7 @@ h1 {
 
 .bg-modal form {
     margin-top: -7em;
-    padding-left: 5em;
+    margin-left: 3em;
 }
 
 .bg-modal input {
@@ -204,6 +227,10 @@ h1 {
 .bg-modal span {
     color: #EE325C;
 }
+.name {
+    display: flex;
+    flex-direction: column;
+}
 .mail-tel {
     display: flex;
 }
@@ -213,6 +240,8 @@ h1 {
 
 .modal-mail {
     margin-right: 3em;
+    display: flex;
+    flex-direction: column;
 }
 
 .note input{
@@ -225,11 +254,10 @@ h1 {
 }
 .modal-btn {
     display: flex;
-    justify-content: center;
     margin-bottom: 1em;
 }
 Button {
-    width: 18.7em;
+    width: 23em;
     height: 3.5em;
     border-radius: 0.5em;
     background: #EE325C;
@@ -243,7 +271,8 @@ Button {
     cursor: pointer;
 }
 .error {
-    border-color: #EE325C;
+    color: #EE325C;
+    font-weight: bold;
 }
 
 
@@ -263,19 +292,26 @@ Button {
         font-size: 0.6em;
     }
     .bg-modal input {
-        width: 22em;
+        width: 19em;
     }
     .mail-tel input {
-        width: 8.5em;
+        width: 7.3em;
     }
-    .btn {
+    .mobile-btn {
         display: flex;
         justify-content: center;    
         margin-top: 4em;
     }
-    Button {
-        width: 14em;
+    .mobile-btn Button {
+        width: 15em;
         font-size: 0.88em;
+        justify-content: center;
+    }
+    .modal-btn Button {
+        width: 23.5em;
+    }
+    .bg-modal form {
+        margin-left: 2.5em;
     }
 }
 
