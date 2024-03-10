@@ -1,9 +1,29 @@
 <!-- eslint-disable no-unused-vars -->
 <template>
     <div id="bg-site">
-        <header>
-            <div class="logo-btn"> 
-                <img src="./../assets/logoR.png" alt="logo" class="logo">
+        <main>
+            <div class="container">
+                <div class="pink">           
+                    <h2>Rýchle výsledky pomocou UX auditu.</h2>
+                    <img src="./../assets/pink.svg" alt="" class="pink1">
+                </div>    
+                <div class="images">
+                    <img src="./../assets/premier-google-partner-RGB-search-mobile-vid-disp-shop.jpg" alt="google partner" class="google">
+                    <img src="./../assets/memberofadma.png" alt="member of adma" class="adma">
+                </div>
+            </div>
+            <div class="list container">
+                <p>UX auditom vášho riešenia lepšie pochopíte, ako vaši zákazníci používajú váš produkt, <b> zvýšite ich spokojnosť <br> a hlavne vaše zisky.</b></p>
+                <ul>
+                    <li>Odhalíme nedostatky na vašej stránke</li>
+                    <li>Zvýšime konverzný pomer vašich stránok</li>
+                    <li>Zvýšime výkon marketingových kampaní</li>
+                    <li>Znížime vaše náklady na vývoj</li>
+                    <li>Zvýšime návštevnosť vašich stránok</li>
+                </ul>
+            </div>
+            <div class="UX container">
+                <p>Dosiahnite lepšie výsledky vašej webstránky alebo e-shopu <b>pomocou UX auditu.</b></p>
                 <button @click="openModal">Mám záujem o UX audit</button>
                 <teleport to="#app">
                     <div id="modal"  class="bg-modal" v-if="isOpen">
@@ -40,35 +60,6 @@
                         </div>
                     </div>
                 </teleport>
-            </div>
-            <div class="title">
-                <h1>Zvýšte svoje <span>zisky optimalizáciou</span>vášho eshopu.</h1>    
-            </div>
-        </header>
-        <main>
-            <div class="container">
-                <div class="pink">           
-                    <h2>Rýchle výsledky pomocou UX auditu.</h2>
-                    <img src="./../assets/pink.svg" alt="" class="pink1">
-                </div>    
-                <div class="images">
-                    <img src="./../assets/premier-google-partner-RGB-search-mobile-vid-disp-shop.jpg" alt="google partner" class="google">
-                    <img src="./../assets/memberofadma.png" alt="member of adma" class="adma">
-                </div>
-            </div>
-            <div class="list container">
-                <p>UX auditom vášho riešenia lepšie pochopíte, ako vaši zákazníci používajú váš produkt, <b> zvýšite ich spokojnosť <br> a hlavne vaše zisky.</b></p>
-                <ul>
-                    <li>Odhalíme nedostatky na vašej stránke</li>
-                    <li>Zvýšime konverzný pomer vašich stránok</li>
-                    <li>Zvýšime výkon marketingových kampaní</li>
-                    <li>Znížime vaše náklady na vývoj</li>
-                    <li>Zvýšime návštevnosť vašich stránok</li>
-                </ul>
-            </div>
-            <div class="UX container">
-                <p>Dosiahnite lepšie výsledky vašej webstránky alebo e-shopu <b>pomocou UX auditu.</b></p>
-                <button @click="openModal">Mám záujem o UX audit</button>
             </div>
 
             <div class="boxes container">
@@ -109,7 +100,7 @@
             <div class="numbers">
                 <div class="one">
                     <img src="./../assets/1.svg" alt="čislo 1" class="img1">
-                    <div class="text-box">
+                    <div class="text-box nmb-1">
                         <h3>Ciele auditu</h3>
                         <p>Určíme si spoločné ciele, nastavíme očakávania a definujeme <b>cieľovú skupinu a jej potreby.</b></p>
                     </div>
@@ -160,24 +151,12 @@
                 <button @click="openModal">Mám záujem o UX audit</button>
             </div>       
         </main>
-        <footer>
-            <div class="text">
-                <h1>Máte otázky? Jednoducho sa spýtajte.</h1>
-            </div>
-            <div class="contact">
-                <a href="tel:+421 (02) 555 65 726" class="tel">+421 (02) 555 65 726 </a>
-                <a href="mailto:uxdesign@riesenia.com" class="email">uxdesign@riesenia.com</a>
-            </div>
-            <div class="company">
-                <img src="./../assets/company.png" alt="RIESENIA">            
-            </div>
-        </footer>
     </div>
 </template>
 
 <script>
 export default {
- data() {
+    data() {
   return {
     isOpen: false,
     meno: '',
@@ -203,7 +182,7 @@ methods: {
       alert('Prosím vyplňte povinné polia: Meno a Email.');
       return false;
     }
-    var emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!this.email.match(emailFormat)) {
       alert('Prosím zadajte platnú e-mailovú adresu.');
       return false;
@@ -214,11 +193,10 @@ methods: {
 },
   watch: {
     isOpen(value) {
-      // Ak je modalita otvorená, pridáme triedu na kontajner aplikácie, inak ju odstránime
       if (value) {
-        document.getElementById('bg-site').classList.add('modal-open')
+        document.getElementById('app').classList.add('modal-open')
       } else {
-        document.getElementById('bg-site').classList.remove('modal-open')
+        document.getElementById('app').classList.remove('modal-open')
       }
     }
   }
@@ -226,47 +204,6 @@ methods: {
 </script>
 
 <style scoped>
-header {
-    width: 100%;
-    height: 34.625em;
-    background: linear-gradient(171deg, #3D2E80 51.38%, #DC1969 125.72%);
-}
-.logo-btn {
-    display: flex;
-    justify-content: space-around;
-    padding-top: 3.56em;
-}
-.logo {
-    width: 9em;
-    height: 3em;
-}
-.logo-btn button{
-    width: 13.5em;
-    height: 3em;
-    border-radius: 0.5em;
-    background: #EE325C;
-    border: none;
-    color: #FFF;
-    text-align: center;
-    font-size: 0.875em;
-    font-weight: 900;
-}
-.title {
-    display: flex;
-    height: 20.3125em;
-    justify-content: center;
-    padding-top: 0.31em;
-}
-h1 {
-    color: #FFF;
-    text-align: center;
-    font-size: 3.125em;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 2em;
-    width: 14.375em;
-}
-
 .container{
     display: flex;
     justify-content: center;
@@ -371,11 +308,6 @@ Button:hover {
 .boxes {
     margin-top: 8em;
 }
-.box1,
-.box2 {
-    border: 1px solid #D6D8DD;
-    padding: 2em 1.56em 1.75em 2.12em;
-}
 .box1 {
     margin-right: 6em;
 }
@@ -388,13 +320,13 @@ Button:hover {
 .box1 p,
 .box2 p {
     width: 22.56em;
-    height: 14em;
     font-size: 1em;
     font-weight: 400;
     line-height: 2em;
     margin: 0;
+    border: 1px solid #D6D8DD;
+    padding: 2em 1.56em 1.75em 2.12em;
 }
-.red ,
 .red {
     color: #EE325C;
     font-weight: 700;
@@ -533,43 +465,6 @@ Button:hover {
     top: -5em;
     left: -17em;
 }
-
-footer{
-    width: 100%;
-    height: 55.1em;
-    background: linear-gradient(161deg, #3D2E80 38.81%, #DC1969 112.05%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.text h1 {
-    width: 18em;
-    font-size: 3em;
-    font-weight: 900;
-    line-height: 1.69em;
-    text-align: center;
-    margin-top: 3em;
-}
-.contact {
-    font-size: 1.875em;
-    font-weight: 700;
-    line-height: 2.5em;
-    margin-top: 4em;
-}
-.tel {
-    color: #fff;
-    text-decoration: none;
-    padding-right: 2em;
-}
-.email{
-   color: #EE325C;
-   text-decoration: none;
-}
-.company {
-    margin-top: 8em;
-    margin-bottom: 7em;
-}
 .pink1{
     position: relative;
     top: -9.8em;
@@ -586,101 +481,6 @@ footer{
     position: relative;
     top: -5.5em;
 }
-
-
-/* Modalný formulár */
-#bg-site.modal-open {
-  opacity: 0.5;
-  background-color: rgba(255 , 255, 255, 0.90);
-}
-
-.bg-modal {
-    position: absolute;
-    width: 34.19em;
-    height: 53.9em;
-    border: 1px solid #E7E8EB;
-    background: #fff;
-    box-shadow: 0px 32px 45px 0px rgba(0, 0, 0, 0.15);
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    top: 7em;
-    right: 35%;
-}
-
-.modal-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.bg-modal h1{
-    font-size: 1.875em;
-    color: #000;
-    width: 12.75em;
-    height: 6.625em;
-    font-weight: 900;
-    line-height: 2em;
-    margin-top: 3em;
-}
-.bg-modal img {
-    position: relative;
-    top: -17em;
-    left: 14em;
-    cursor: pointer;
-}
-
-.bg-modal form {
-    margin-top: -7em;
-    padding-left: 3em;
-}
-
-.bg-modal input {
-    width: 32em;
-    height: 3.44em;
-    border-radius: 0.25em;
-    background-color: #EFEFEF;
-    border: #EFEFEF;
-    padding-left: 2em;
-}
-.bg-modal p {
-    font-weight: 900;
-}
-.bg-modal span {
-    color: #EE325C;
-}
-.mail-tel {
-    display: flex;
-}
-.mail-tel input {
-    width: 13em;
-}
-
-.modal-mail {
-    margin-right: 3em;
-}
-
-.note input{
-    padding-bottom: 10em;
-}
-.note input::placeholder {
-    color: #000;
-    font-weight: 400;
-    font-size: 1em;
-}
-.modal-btn {
-    display: flex;
-    justify-content: center;
-}
-
-
-
-@media screen and (max-width: 1250) {
-    .bg-modal {
-        right: 31.5%;    
-    }    
-}
-
 @media screen and (max-width: 1085px ) {
     .container {
         flex-direction: column-reverse;
@@ -719,7 +519,6 @@ footer{
     }
     .boxes{
         flex-direction: column;
-        margin-top: 4em;
     }
     .box1{
         margin-right: 0em;
@@ -762,9 +561,6 @@ footer{
     .btn{
         left: -1.5em;
     }
-    .bg-modal{
-        right: 24.5%;
-    }
 }
 
 @media screen and (max-width: 900px ) {
@@ -788,58 +584,9 @@ footer{
         padding-top: 0em;
     }
 }
-
-@media screen and (max-width: 800px ) {
-    .footer {
-        height: 39.1em;
-    }
-    .text h1{
-        width: 11em;
-        font-size: 1.5em;
-    }
-    .contact {
-        display: flex; 
-        flex-direction: column;
-        align-items: center;
-        margin-top: 2em;
-        font-size: 1.375em; 
-    }
-    .tel {
-        padding-right: 0em;
-    }
-
-    .company img {
-        width: 12em;   
-    }
-    .bg-modal {
-        right: 19.8%;    
-    }
-}
-
-@media screen and (max-width: 715px) {
-    .bg-modal{
-        right: 15%;    
-    }   
-}
-
-@media screen and (max-width: 680px) {
-    .bg-modal {
-        right: 2em;
-    }
-}
-
 @media screen and (max-width: 560px ) {
-    .title{
-        height: 12.31em;
-    }
-    h1 {
-        font-size: 1.875em;
-        height: 3em;
-    }
-    header button {
-        position: relative;
-        bottom: -22em;
-        right: 9em;    
+    .images {
+        padding-left: 2em;
     }
     .container h2 {
         font-size: 2em;
@@ -865,44 +612,39 @@ footer{
     }
     .UX p {
         width: 12.5em;
+        margin-left: -0.5em;
     }
     .UX button {
         margin-right: 0em;
         width: 16em;
         margin-top: 4em;   
     }
-    .box1 {
-        width: 20.186em;
-        height: 19em;
-        padding: 2em 1.19em 0.19em 1.75em;
-    }
     .box1 p {
         width: 17.25em;
-        height: 20.125em;
+        padding: 2em 1.19em 0.19em 1.75em;
     }
     .box1 img {
-        bottom: 23.4em;
+        bottom: 21.9em;
         left: 1em;
     }
     .svet{
-        left: 1em;
-        top: -41em;
-    }
-    .box2 {
-        width: 20.19em;
-        height: 22.9em;
-        padding: 2em 1.19em 0.19em 1.75em;
+        left: 2.5em;
+        top: -43em;
     }
     .box2 p {
         width: 16.44em;
-        height: 19.5em;
+        padding: 1.87em 1.94em 1.5em 1.81em;
     }
     .box2 img {
-        bottom: 23em;
+        bottom: 25em;
         left: 1em;
     }
     .alain {
-        left: -2em;
+        top: -2em;
+        left: -0.5em;
+    }
+    .results {
+        margin-bottom: 3em;
     }
     .results h2 {
         display: flex;
@@ -917,18 +659,26 @@ footer{
     .text-box p {
         width: 13.5em;
     }
+    .one{
+        left: 4em;
+    }
     .two {
-        padding-top: 3em;  
+        padding-top: 4em;  
         padding-bottom: 2em;
+        left: 4em;
     }
     .nmb-2 p {
         width: 14em;    
     }
     .nmb-3 p {
-        width: 14.5em;    
+        width: 14.5em;
+    }
+    .nmb-3{
+        padding-top: 4em;
     }
     .four {
-        padding-top: 3em;
+        padding-top: 4em;
+        left: 4em;
     }
     .important{
         padding-top: 2em;
@@ -946,18 +696,14 @@ footer{
     .ul p {
         margin-top: 6em;
         width: 12.69em;
+        font-size: 1.38em;
     }
     .btn {
-        margin-top: 2em; 
+        margin-top: 2em;
+        left: -0.5em; 
     }
     .btn button {
-        width: 15.7em;  
-    }
-    footer {
-        height: 34.1em;
-    }
-    .bg-modal {
-        right: 0.2em;   
+        width: 13.7em;  
     }
 }
 
@@ -971,23 +717,12 @@ footer{
     .text-box  {
         padding-left: 1em;
     }
+    .nmb-1{
+        padding-left: 2em    
+    }
 }
 
 @media screen and (max-width: 360px) {
-    .logo {
-        margin-left: 1em;
-    }
-    .logo-btn {
-        justify-content: space-between;
-    }
-    .logo-btn button {
-        right: 8em;
-        min-width: 15.5em;    
-    }
-    .title h1 {
-        display: flex; 
-        flex-direction: column;   
-    }
     .images {
         font-size: 0.7em;
     }
@@ -995,26 +730,40 @@ footer{
         margin-left: 0.5em;
     }
     .list p {
-        margin-left: 2.5em;    
+        margin-left: 3em;    
     }
     .list ul {
-        margin-left: 1em;
+        margin-left: 2em;
     }
     .UX button {
-        width: 15em;    
+        width: 14em;    
     }
-    .box1,
-    .box2 {
-        padding: 2em 0em 0.19em 0.5em;
+    .boxes {
+        font-size: 0.9em;
+    }
+    .box1 img {
+    bottom: 21.4em;
+    left: 2em;
+    }    
+    .box2 img {
+    bottom: 24.5em;
+    left: 2em;
+    }
+    .users {
+        font-size: 0.9em;    
     }
     .svet {
-        left: 2.8em;
+        left: 2.9em;
     }
     .alain {
         left: -0em;
+        top: -3em;
     }
     .results h2 {
         margin-left: 1em; 
+    }
+    .ul {
+        margin-left: 1em;    
     } 
     .pink2 {
         left: 3.2em;
@@ -1027,13 +776,13 @@ footer{
     }
     .ul p {
         font-size: 1.35em;
-        margin-left: 1em;
+        margin-left: -1em;
     }
     .btn {
-        left: -0.5em;
+        left: 0em;
     }
     .btn button {
-        width: 13em;    
+        width: 14em;    
     }
 }
 </style>
