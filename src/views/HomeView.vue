@@ -735,6 +735,9 @@ Button:hover {
     .list ul {
         margin-left: 2em;
     }
+    .UX p {
+        margin-left: 0.5em;
+    }
     .UX button {
         width: 14em;    
     }

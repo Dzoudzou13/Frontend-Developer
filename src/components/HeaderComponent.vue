@@ -260,7 +260,7 @@ Button {
         display: none;    
     }
     .bg-modal {
-        font-size: 0.7em;
+        font-size: 0.6em;
     }
     .bg-modal input {
         width: 22em;
@@ -282,6 +282,7 @@ Button {
 @media screen and (max-width: 360px) {
     .logo-btn {
         justify-content: start;
+        margin-left: 1em;
     }
     .logo-btn button {
         right: 8em;
