@@ -233,9 +233,8 @@ export default {
 .container{
     display: flex;
     justify-content: center;
-}
 
-.container h2 {
+    h2 {
     width: 8.94em;
     height: 4.19em;
     font-size: 3em;
@@ -243,24 +242,38 @@ export default {
     padding-top: 1.56em;
     padding-right: 2.3em;
     margin: 0;
+    }
+
+    .pink1{
+    position: relative;
+    top: -9.8em;
+    right: -10em;
+    width: 12.88em;
+    }
 }
+
 
 .images {
     padding-top: 4.8em;
     display: flex;
     padding-left: 1em;
-}
-.google {
+
+    .google {
     height: 5em;
     padding-top: 1em;
-}
+    }
 
-.adma {
+    .adma {
     padding-left: 2em;
     height: 7em;
+    }
 }
 
-.list p {
+
+
+
+.list{
+    p {
     width: 19em;
     height: 8em;
     font-size: 1.5em;
@@ -270,9 +283,11 @@ export default {
     margin-top: 2.5em;
     position: relative;
     left: -1em;
-}
+    }
 
-ul {
+} 
+
+ ul {
     display: flex;
     width: 24.63em;
     height: 15.625em;
@@ -280,22 +295,21 @@ ul {
     justify-content: center;
     list-style: none; 
     padding-left: 0; 
-}
-li {
+
+    li {
     background-image: url('./../assets/images/greencircle.svg'); 
     background-repeat: no-repeat; 
     padding-left: 1.875em; 
     padding-bottom: 2.5em;
     font-size: 1.125em;
     font-weight: 600;
+    }
 }
-
 .UX {
     align-items: center;
     margin-top: 6.7em;
-}
 
-.UX p{
+    p{
     width: 23em;
     height: 4.375em;
     font-size: 1.375em;
@@ -305,9 +319,11 @@ li {
     left: -1em;
     margin-right: 2em;
     margin-top: 0;
+    }
+
 }
 
-.UX Button {
+ Button {
     width: 19.7em;
     height: 3.5em;
     border-radius: 0.5em;
@@ -320,91 +336,113 @@ li {
     margin-top: 1em;
     transition-duration: 2s;
     cursor: pointer;
-}
 
-.UX Button:focus,
-.UX Button:hover {
-    background: #EE325C;
-    animation: pulse-169a02ec 1s;
-    box-shadow: inset 0 0 0 2em transparent, 0 0 0 1em transparent;
-    color: #fff;
-    transform: scale(1.1);
+
+    &:focus,
+    &:hover {
+        background: #EE325C;
+        animation: pulse-169a02ec 1s;
+        box-shadow: inset 0 0 0 2em transparent, 0 0 0 1em transparent;
+        color: #fff;
+        transform: scale(1.1);
+            }
 }
 
 .boxes {
     margin-top: 8em;
-}
-.box1 {
+
+    .box1 {
     margin-right: 6em;
-}
-.box1 img,
-.box2 img {
-    position: relative;
-    bottom: 19.4em;
-    left: 2em;
-}
-.box1 p,
-.box2 p {
-    width: 22.56em;
-    font-size: 1em;
-    font-weight: 400;
-    line-height: 2em;
-    margin: 0;
-    border: 1px solid #D6D8DD;
-    padding: 2em 1.56em 1.75em 2.12em;
-}
-.red {
+    }
+
+    .box1,
+    .box2 {
+        img {
+        position: relative;
+        bottom: 19.4em;
+        left: 2em;
+        }
+        p {
+        width: 22.56em;
+        font-size: 1em;
+        font-weight: 400;
+        line-height: 2em;
+        margin: 0;
+        border: 1px solid #D6D8DD;
+        padding: 2em 1.56em 1.75em 2.12em;
+        }
+    }
+
+    .red {
     color: #EE325C;
     font-weight: 700;
+    } 
 }
+
+
 .users {
     margin-top: 2.06em;
-}
 
-.loga-firiem {
+    .loga-firiem {
     display: flex;
-}
-.loga-firiem img {
-    width: 4em;
-    height: 4em;
-}
-.loga-firiem p {
-    padding-left: 1.19em;
-    width: 14.125em;
-    height: 3.06em;
-    line-height: 1.375em;
-    font-size: 1em;
-}
-.loga-firiem b {
-    font-weight: 900;
-}
-.loga-firiem span {
-    color: #EE325C;
-    font-weight: 700;
+        img {       
+        width: 4em;
+        height: 4em;
+        }
+        
+        p {
+        padding-left: 1.19em;
+        width: 14.125em;
+        height: 3.06em;
+        line-height: 1.375em;
+        font-size: 1em;
+        }
+
+        b {
+        font-weight: 900;
+        }
+
+        span {
+        color: #EE325C;
+        font-weight: 700;
+        }
+    }
+    .svet {
+        margin-right: 6em;
+        position: relative;
+        left: -7em;
+        }
 }
 
-.svet {
-    margin-right: 6em;
-    position: relative;
-    left: -7em;
-}
-.results h2{
+
+.results{
+    h2{
     width: 10.94em;
     padding-right: 0em;
     text-align: center;
     padding-top: 3.5em;
-}
-.resualts h2 br {
-    display: none;
-}
 
-.one{
+        br {
+        display: none;
+        }
+    }
+    .pink2{
+    position: relative;
+    top: -5.5em;
+    left: 13.9em;
+    width: 16.16em;
+    }
+} 
+
+
+.numbers{
+    .one{
     display: flex;
     justify-content: center;
     position: relative;
     left: -11.8em;
-}
-.text-box {
+    }
+    .text-box {
     display: flex;
     width: 22.75em;
     height: 6.25em;
@@ -412,67 +450,87 @@ li {
     justify-content: center;
     padding-left: 3em;
     padding-top: 1.3em;
-}
-.text-box h3 {
-    font-size: 1.5em;
-    font-weight: 900;
-    line-height: normal;
-    margin: 0;
-}
-.text-box p {
-    font-weight: 400;
-    line-height: 1.75em;
-    margin: 0;
-    width: 22em;
-}
-.arrowR {
+
+        h3 {
+        font-size: 1.5em;
+        font-weight: 900;
+        line-height: normal;
+        margin: 0;
+        }
+
+        p {
+        font-weight: 400;
+        line-height: 1.75em;
+        margin: 0;
+        width: 22em;
+        }   
+    }
+    .arrowR {
     position: relative;
     top: 5em;
     left: 3em;
     height: 4.375em;
     width: 4.64em;
-}
-.two {
+    }
+
+    .two {
     display: flex;
     justify-content: center;
     position: relative;
     left: 12em;
     padding-top: 3em;
-}
-.nmb-2 p {
-    width: 24em;
+
+        p {
+            width: 24em;
+        }
     }
-.arrowL{
+
+    .arrowL{
     position: relative;
     top: 3em;
     right: 3em;
-}
-.nmb-3 p {
-    width: 24em;
-}
-.smallarrowR {
+    }
+
+    .nmb-3{
+        p{
+             width: 24em;
+        }
+    }
+
+    .smallarrowR {
     position: relative;
     top: 4.5em;
     left: 3em;
     width: 4.25em;
     height: 4.31em;
-}
-.four {
+    }
+
+    .four {
     display: flex;
     justify-content: center;
     position: relative;
     left: 14em;
     padding-top: 2em;
+    }
 }
 
 .important{
     padding-top: 5em;
-}
-.important h2 {
+
+    h2 {
     width: 9.6em;
     padding-right: 10em;
+    }
+
+    .pink3{
+    position: relative;
+    top: -5.5em;
+    }
 }
-.ul p {
+
+
+.ul{
+    p {
     width: 16.69em;
     height: 4.25em;
     font-size: 1.625em;
@@ -481,92 +539,89 @@ li {
     margin: 0;
     margin-right: 2.5em;
     margin-top: -0.1em;
-}
-.ul ul {
+    }
+
+     ul {
     width: 27.63em;
-}
+    }
+} 
+
 
 .btn{
     position: relative;
     top: -5em;
     left: -17em;
 }
-.pink1{
-    position: relative;
-    top: -9.8em;
-    right: -10em;
-    width: 12.88em;
-}
-.pink2{
-    position: relative;
-    top: -5.5em;
-    left: 13.9em;
-    width: 16.16em;
-}
-.pink3{
-    position: relative;
-    top: -5.5em;
-}
+
 @media screen and (max-width: 1085px ) {
     .container {
         flex-direction: column-reverse;
         align-items: center;
-    }
-    .container h2 {
+
+        h2 {
         padding-right: 0em;
+        }
     }
     .list {
         flex-direction: column;
         align-items: center;
-    }
-    .list ul {
+
+        ul {
         padding-top: 6em;
-    }
-    .list p {
+        }
+
+        p {
         width: 18em;
         margin: 0;
         left: 0;
-    }
-    .list p br {
-        display: none;
+
+            br {
+            display: none;
+            }
+        }
     }
     .UX{
         flex-direction: column;
         margin-top: 3.7em;
-    }
-    .UX p {
+
+        p {
         width: 18em;
         height: 7.38em;
         left: 0;
         margin-right: 1.5em;
-    }
-    .UX button {
+        }
+
+        button {
         margin-right: 1.5em;
+        }
     }
     .boxes{
         flex-direction: column;
-    }
-    .box1{
+
+        .box1{
         margin-right: 0em;
         margin-bottom: 10em;
+        }
     }
-    .svet {
+    .users {
+        .svet {
         left: -0.5em;
-        top: -34em;
-    }
-    .alain{
+        top: -38em;
+        }
+
+        .alain{
         position: relative;
         left: -3.5em;
+        top: -3em;        
     }
-    .results h2 {
+    }
+    .results{
+        h2 {
         padding-top: 0em;
-    }
-    .arrowR{
-        display: none;
-    }
-    .arrowL{
-        display: none;
-    }
+        }
+    } 
+    .arrowR,
+    .arrowL,
     .smallarrowR{
         display: none;
     }
@@ -579,55 +634,65 @@ li {
     .important {
         padding-top: 0em;
     }
-    .ul p {
+    .ul {
+        p {
         margin-top: 2em;
         margin-bottom: 5em;
         margin-right: 0em;
-    }
+        }
+    } 
     .btn{
         left: -1.5em;
     }
 }
 
 @media screen and (max-width: 900px ) {
-    .numbers{
+    .numbers {
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
-    .one {
-        left: 0em;
-    }
-    .numbers img {
-        padding-top: 2em;
-    }
-    .two {
-        left: 0em;
-        padding-top: 0em;
-    }
-    .four {
-        left: 0em;
-        padding-top: 0em;
+
+        img {
+            padding-top: 2em;
+        }
+
+        .one {
+            left: 0em;
+        }
+
+        .two {
+            left: 0em;
+            padding-top: 0em;
+        }
+
+        .four {
+            left: 0em;
+            padding-top: 0em;
+        }
     }
 }
 @media screen and (max-width: 560px ) {
     .images {
         padding-left: 2em;
     }
-    .container h2 {
+    .container{
+        h2 {
         font-size: 2em;
         width: 9.94em;
-    }
-    .pink1{
+        }
+        .pink1{
         top: -6.5em;
         right: -6.4em;
         width: 9em;
-    }
-    .list p {
+        }
+    } 
+    .list{
+        p {
         font-size: 1.25em;
         margin-left: 2em;  
         margin-bottom: 2em;
-    }
+        }
+    } 
     ul {
         padding-top: 9em;
         width: 17.63em;
@@ -635,116 +700,151 @@ li {
     }
     .UX {
         margin-top: 4.7em;
-    }
-    .UX p {
+
+        p {
         width: 12.5em;
         margin-left: -0.5em;
-    }
-    .UX button {
+        }
+
+        button {
         margin-right: 0em;
         width: 16em;
         margin-top: 4em;   
+        }
     }
-    .box1 p {
-        width: 17.25em;
-        padding: 2em 1.19em 1em 1.75em;
+    .boxes{
+        .box1{
+            p {
+            width: 17.25em;
+            padding: 2em 1.19em 1em 1.75em;
+            }
+
+            img {
+            bottom: 22.6em;
+            left: 1em;
+            }
+        }
+        .box2{
+            p {
+            width: 16.44em;
+            padding: 1.87em 1.94em 1.5em 1.81em;
+            }
+
+            img {
+            bottom: 25em;
+            left: 1em;
+            }
+        }  
     }
-    .box1 img {
-        bottom: 22.6em;
-        left: 1em;
-    }
-    .svet{
+    .users {
+        .svet{
         left: 2.5em;
         top: -43em;
-    }
-    .box2 p {
-        width: 16.44em;
-        padding: 1.87em 1.94em 1.5em 1.81em;
-    }
-    .box2 img {
-        bottom: 25em;
-        left: 1em;
-    }
-    .alain {
+        }
+        .alain {
         top: -2em;
         left: -0.5em;
+        }
     }
+   
     .results {
         margin-bottom: 3em;
-    }
-    .results h2 {
+
+        h2 {
         display: flex;
         flex-direction: column;
         text-align: left;    
-    }
-    .pink2 {
+        }
+
+        .pink2 {
         top: -1.5em;
         left: 1.5em;
         width: 11.5em;
+        }
     }
-    .text-box p {
-        width: 13.5em;
-    }
-    .one{
+    .numbers{
+        .text-box {
+            p {
+            width: 13.5em;
+            }
+        } 
+
+        .one{
         left: 4em;
-    }
-    .two {
+        }
+
+        .two {
         padding-top: 4em;  
         padding-bottom: 2em;
         left: 4em;
-    }
-    .nmb-2 p {
-        width: 14em;    
-    }
-    .nmb-3 p {
-        width: 14.5em;
-    }
-    .nmb-3{
+
+            p {
+            width: 14em;    
+            }
+        }
+
+        .nmb-3{
         padding-top: 4em;
-    }
-    .four {
+
+            p {
+            width: 14.5em;
+            }
+        }
+
+         .four {
         padding-top: 4em;
         left: 4em;
+        }
     }
     .important{
         padding-top: 2em;
-    }
-    .important h2{
+
+        h2{
         width: 8.94em;    
-    }
-    .pink3 {
+        }
+
+        .pink3 {
         top: -4em;
         width: 17em;
+        }
     }
-    .ul ul {
+    
+    .ul{
+        ul {
         width: 15.63em;
-    }
-    .ul p {
+        }
+
+        p {
         margin-top: 6em;
         width: 12.69em;
         font-size: 1.38em;
-    }
+        }
+    } 
     .btn {
         margin-top: 2em;
         left: -0.5em; 
-    }
-    .btn button {
+
+        button {
         width: 13.7em;  
+        }
     }
 }
 
 @media screen and (max-width: 425px) {
     .numbers {
         align-items: stretch;
-    }
-    .numbers img {
+
+        img {
         padding-left: 2em;
-    }
-    .text-box  {
+        }
+
+        .text-box  {
         padding-left: 1em;
-    }
-    .nmb-1{
+        }
+
+        .nmb-1{
         padding-left: 2em    
+        }
     }
 }
 
@@ -752,69 +852,94 @@ li {
     .images {
         font-size: 0.7em;
     }
-    .container h2 {
+    .container{
+        h2 {
         margin-left: 0.5em;
-    }
-    .pink1 {
-        left: -7.4em;
-    }
-    .list p {
+        }
+
+        .pink1 {
+        left: 7.4em;
+        }
+    } 
+    .list{
+        p {
         margin-left: 3em;    
-    }
-    .list ul {
+        }
+
+        ul {
         margin-left: 2em;
-    }
-    .UX p {
+        }
+    } 
+    .UX{
+        p {
         margin-left: 0.5em;
-    }
-    .UX button {
+        }
+
+        button {
         width: 14em;    
-    }
+        }
+    } 
     .boxes {
         font-size: 0.9em;
-    }
-    .box1 img {
-    bottom: 21.4em;
-    left: 2em;
-    }    
-    .box2 img {
-    bottom: 24.5em;
-    left: 2em;
+
+        .box1{
+            img {
+            bottom: 21.4em;
+            left: 2em;
+            }    
+        }
+        .box2{
+            img {
+            bottom: 24.5em;
+            left: 2em;
+            }
+        } 
     }
     .users {
         font-size: 0.9em;    
-    }
-    .svet {
+
+        .svet {
         left: 2.9em;
-    }
-    .alain {
+        }
+
+        .alain {
         left: -0em;
         top: -3em;
+        }
     }
-    .results h2 {
+    .results{
+        h2 {
         margin-left: 1em; 
+        }
+
+        .pink2 {
+        left: 3.2em;
+        }
+    }
+    
+    .important {
+        .pink3 {
+        left: 1em;
+        }
     }
     .ul {
         margin-left: 1em;    
-    } 
-    .pink2 {
-        left: 3.2em;
-    }
-    .pink3 {
-        left: 1em;
-    }
-    .ul ul {
+
+        ul {
         margin-left: 1em;
-    }
-    .ul p {
+        }
+
+        p {
         font-size: 1.35em;
         margin-left: -1em;
-    }
+        }
+    } 
     .btn {
         left: 0em;
-    }
-    .btn button {
+
+        button {
         width: 14em;    
+        }
     }
 }
 </style>

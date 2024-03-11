@@ -125,7 +125,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 header {
     width: 100%;
     height: 34.625em;
@@ -136,44 +136,46 @@ header {
     justify-content: space-around;
     padding-top: 3.56em;
 }
+button {
+        width: 13.5em;
+        height: 3em;
+        border-radius: 0.5em;
+        background: #EE325C;
+        border: none;
+        color: #FFF;
+        text-align: center;
+        font-size: 0.875em;
+        font-weight: 900;
+}
 .logo {
     width: 9em;
     height: 3em;
-}
-.logo-btn button{
-    width: 13.5em;
-    height: 3em;
-    border-radius: 0.5em;
-    background: #EE325C;
-    border: none;
-    color: #FFF;
-    text-align: center;
-    font-size: 0.875em;
-    font-weight: 900;
 }
 .title {
     display: flex;
     height: 20.3125em;
     justify-content: center;
     padding-top: 0.31em;
+    
+    h1 {
+        color: #FFF;
+        text-align: center;
+        font-size: 3.125em;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 2em;
+        width: 14.375em;
+    }
 }
-h1 {
-    color: #FFF;
-    text-align: center;
-    font-size: 3.125em;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 2em;
-    width: 14.375em;
-}
+
 .mobile-btn {
     display: none;
 }
 
 /* Modalný formulár */
 #app.modal-open {
-  opacity: 0.5;
-  background-color: rgba(255 , 255, 255, 0.90);
+    opacity: 0.5;
+    background-color: rgba(255 , 255, 255, 0.90);
 }
 
 .bg-modal {
@@ -186,133 +188,163 @@ h1 {
     display: flex;
     flex-direction: column;
     top: 7em;
+    
+    .modal-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        h1 {
+            font-size: 1.875em;
+            color: #000;
+            width: 12.75em;
+            height: 6.625em;
+            font-weight: 900;
+            line-height: 2em;
+            margin-top: 3em;
+        }
+    }
+
+    img {
+        position: relative;
+        top: -17em;
+        left: 14em;
+        cursor: pointer;
+    }
+
+    form {
+        margin-top: -7em;
+        margin-left: 3em;
+        
+        input {
+            width: 27rem;
+            height: 3.44em;
+            border-radius: 0.25em;
+            background-color: #EFEFEF;
+            border: #EFEFEF;
+            padding-left: 2em;
+        }
+        
+        p {
+            font-weight: 900;
+        }
+        
+        span {
+            color: #EE325C;
+        }
+    }
+
+    .name {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .mail-tel {
+        display: flex;
+        
+        input {
+            width: 11.2rem;
+        }
+    }
+
+    .modal-mail {
+        margin-right: 3em;
+        display: flex;
+        flex-direction: column;
+        
+        span {
+            width: 11em;
+        }
+    }
+
+    .note input {
+        padding-bottom: 10em;
+        
+        &::placeholder {
+            color: #000;
+            font-weight: 400;
+            font-size: 1em;
+        }
+    }
+
+    .modal-btn {
+        display: flex;
+        margin-bottom: 1em;
+        
+        Button {
+            width: 23em;
+            height: 3.5em;
+            border-radius: 0.5em;
+            background: #EE325C;
+            border: none;
+            color: #FFF;
+            text-align: center;
+            font-size: 1.25em;
+            font-weight: 900;
+            margin-top: 1em;
+            transition-duration: 2s;
+            cursor: pointer;
+        }
+    }
+
+    .error {
+        color: #EE325C;
+        font-weight: bold;
+    }
 }
 
-.modal-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.bg-modal h1{
-    font-size: 1.875em;
-    color: #000;
-    width: 12.75em;
-    height: 6.625em;
-    font-weight: 900;
-    line-height: 2em;
-    margin-top: 3em;
-}
-.bg-modal img {
-    position: relative;
-    top: -17em;
-    left: 14em;
-    cursor: pointer;
-}
-
-.bg-modal form {
-    margin-top: -7em;
-    margin-left: 3em;
-}
-
-.bg-modal input {
-    width: 27rem;
-    height: 3.44em;
-    border-radius: 0.25em;
-    background-color: #EFEFEF;
-    border: #EFEFEF;
-    padding-left: 2em;
-}
-.bg-modal p {
-    font-weight: 900;
-}
-.bg-modal span {
-    color: #EE325C;
-}
-.name {
-    display: flex;
-    flex-direction: column;
-}
-.mail-tel {
-    display: flex;
-}
-.mail-tel input {
-    width: 11.2rem;
-}
-.modal-mail {
-    margin-right: 3em;
-    display: flex;
-    flex-direction: column;
-}
-.modal-mail span {
-    width: 11em;
-}
-.note input{
-    padding-bottom: 10em;
-}
-.note input::placeholder {
-    color: #000;
-    font-weight: 400;
-    font-size: 1em;
-}
-.modal-btn {
-    display: flex;
-    margin-bottom: 1em;
-}
-Button {
-    width: 23em;
-    height: 3.5em;
-    border-radius: 0.5em;
-    background: #EE325C;
-    border: none;
-    color: #FFF;
-    text-align: center;
-    font-size: 1.25em;
-    font-weight: 900;
-    margin-top: 1em;
-    transition-duration: 2s;
-    cursor: pointer;
-}
-.error {
-    color: #EE325C;
-    font-weight: bold;
-}
-
-@media screen and (max-width: 560px ) {
-     .title{
+@media screen and (max-width: 560px) {
+    .title {
         height: 12.31em;
         margin-top: 3em;
+        
+        h1 {
+            font-size: 1.875em;
+            height: 3em;
+        }
     }
-    .title h1 {
-        font-size: 1.875em;
-        height: 3em;
-    }
+    
     .logo-btn button {
-        display: none;    
+        display: none;
     }
+    
     .bg-modal {
         font-size: 0.6em;
-    }
-    .bg-modal input {
-        width: 16rem;
-    }
-    .mail-tel input {
+        
+        form input {
+            width: 16rem;
+        }
+
+        .mail-tel input {
         width: 6.3rem;
+        }
     }
+    
+    
     .mobile-btn {
         display: flex;
-        justify-content: center;    
-        margin-top: 4em;
-    }
-    .mobile-btn Button {
-        width: 15em;
-        font-size: 0.88em;
         justify-content: center;
+        margin-top: 4em;
+        
+        Button {
+            width: 15em;
+            font-size: 0.88em;
+            justify-content: center;
+            height: 3em;
+            border-radius: 0.5em;
+            background: #EE325C;
+            border: none;
+            color: #FFF;
+            text-align: center;
+            font-weight: 900;
+        }
     }
+    
     .modal-btn Button {
         width: 23.5em;
     }
-    .bg-modal form {
+    
+    form {
         margin-left: 2.5em;
     }
 }
@@ -321,14 +353,17 @@ Button {
     .logo-btn {
         justify-content: start;
         margin-left: 1em;
+        
+        button {
+            right: 8em;
+            min-width: 15.5em;
+        }
     }
-    .logo-btn button {
-        right: 8em;
-        min-width: 15.5em;    
-    }
+    
     .title h1 {
-        display: flex; 
-        flex-direction: column;   
+        display: flex;
+        flex-direction: column;
     }
 }
+
 </style>
