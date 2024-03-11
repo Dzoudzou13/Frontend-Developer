@@ -12,7 +12,9 @@
                         <form @submit.prevent="odoslatFormular">
                             <div class="name">
                                 <p>Meno <span>*</span></p>
-                                <input type="text" name="meno" id="meno" v-model="formData.meno">
+                                <div class="meno">
+                                     <input type="text" name="meno" id="meno" v-model="formData.meno">
+                                </div>                               
                                 <span v-for="error in v$.meno.$errors" :key="error.$uid" class="error"> 
                                     {{ error.$message }}
                                 </span>
@@ -214,7 +216,7 @@ h1 {
 }
 
 .bg-modal input {
-    width: 32em;
+    width: 27rem;
     height: 3.44em;
     border-radius: 0.25em;
     background-color: #EFEFEF;
@@ -235,15 +237,16 @@ h1 {
     display: flex;
 }
 .mail-tel input {
-    width: 13em;
+    width: 11.2rem;
 }
-
 .modal-mail {
     margin-right: 3em;
     display: flex;
     flex-direction: column;
 }
-
+.modal-mail span {
+    width: 11em;
+}
 .note input{
     padding-bottom: 10em;
 }
@@ -275,7 +278,6 @@ Button {
     font-weight: bold;
 }
 
-
 @media screen and (max-width: 560px ) {
      .title{
         height: 12.31em;
@@ -292,10 +294,10 @@ Button {
         font-size: 0.6em;
     }
     .bg-modal input {
-        width: 19em;
+        width: 16rem;
     }
     .mail-tel input {
-        width: 7.3em;
+        width: 6.3rem;
     }
     .mobile-btn {
         display: flex;
